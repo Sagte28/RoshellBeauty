@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Safeguard for environments where window.fetch has only a getter
+      (function() {
+        try {
+          var originalFetch = typeof window !== 'undefined' ? window.fetch : null;
+          var currentFetch = originalFetch;
+          if (typeof window !== 'undefined' && originalFetch) {
+            try {
+              Object.defineProperty(window, 'fetch', {
+                get: function() { return currentFetch || originalFetch; },
+                set: function(fn) { currentFetch = fn; },
+                configurable: true,
+                enumerable: true
+              });
+            } catch (e) {
+              if (typeof Window !== 'undefined' && Window.prototype) {
+                try {
+                  Object.defineProperty(Window.prototype, 'fetch', {
+                    get: function() { return currentFetch || originalFetch; },
+                    set: function(fn) { currentFetch = fn; },
+                    configurable: true,
+                    enumerable: true
+                  });
+                } catch (_) {}
+              }
+            }
+          }
+        } catch (_) {}
+      })();
+    </script>
+    <title>RoshellBeauty | Maquillaje de Alta Gama & Belleza Exclusiva</title>
+    <meta name="description" content="Descubre la colección exclusiva de RoshellBeauty: labiales de larga duración, bases luminosas, paletas de sombras y accesorios con fórmulas veganas y cruelty-free." />
+    <meta property="og:title" content="RoshellBeauty | Maquillaje de Alta Gama & Belleza Exclusiva" />
+    <meta property="og:description" content="Descubre la colección exclusiva de RoshellBeauty: labiales de larga duración, bases luminosas, paletas de sombras y accesorios con fórmulas veganas y cruelty-free." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/RoshellBeauty/logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="/RoshellBeauty/assets/index-BN4aekO3.js"></script>
+    <link rel="stylesheet" crossorigin href="/RoshellBeauty/assets/index-CqlB4-3m.css">
+  </head>
+  <body class="bg-[#FAF7F5] text-[#2D2424] font-sans antialiased selection:bg-[#F3D7D7] selection:text-[#5B1E31]">
+    <div id="root"></div>
+  </body>
+</html>
+
